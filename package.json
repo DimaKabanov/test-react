@@ -1,0 +1,60 @@
+{
+  "name": "test-react",
+  "version": "1.0.0",
+  "description": "learning testing react app",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "eslint": "eslint",
+    "webpack": "webpack",
+    "webpack-server": "webpack-dev-server --open",
+    "babel-node": "babel-node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DimaKabanov/test-react.git"
+  },
+  "keywords": [
+    "react",
+    "jest",
+    "test"
+  ],
+  "author": "Dmitry Kabanov",
+  "license": "ISC",
+  "homepage": "https://github.com/DimaKabanov/test-react#readme",
+  "dependencies": {
+    "@babel/polyfill": "^7.2.5",
+    "axios": "^0.18.0",
+    "lodash": "^4.17.11",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.3",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.3",
+    "@babel/plugin-proposal-decorators": "^7.3.0",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.1.0",
+    "babel-loader": "^8.0.5",
+    "css-loader": "^2.1.0",
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jest": "^22.3.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.1.0",
+    "jest-cli": "^24.1.0",
+    "react-test-renderer": "^16.8.2",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.0"
+  }
+}
