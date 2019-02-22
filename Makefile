@@ -12,6 +12,6 @@ test:
 	npm test
 
 lint:
-	npm run eslint .
+	npx eslint .
 
 .PHONY: test
