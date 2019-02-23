@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs snapshot Click to second tab 1`] = `
+<div>
+  <h1>
+    My first React App
+  </h1>
+  <div
+    class="react-tabs"
+    data-tabs="true"
+  >
+    <ul
+      class="react-tabs__tab-list"
+      role="tablist"
+    >
+      <li
+        aria-controls="react-tabs-7"
+        aria-disabled="false"
+        aria-selected="false"
+        class="react-tabs__tab"
+        data-test="tab-control"
+        id="react-tabs-6"
+        role="tab"
+      >
+        Tab 1
+      </li>
+      <li
+        aria-controls="react-tabs-9"
+        aria-disabled="false"
+        aria-selected="true"
+        class="react-tabs__tab react-tabs__tab--selected"
+        data-test="tab-control"
+        id="react-tabs-8"
+        role="tab"
+        tabindex="0"
+      >
+        Tab 2
+      </li>
+      <li
+        aria-controls="react-tabs-11"
+        aria-disabled="false"
+        aria-selected="false"
+        class="react-tabs__tab"
+        data-test="tab-control"
+        id="react-tabs-10"
+        role="tab"
+      >
+        Tab 3
+      </li>
+    </ul>
+    <div
+      aria-labelledby="react-tabs-6"
+      class="react-tabs__tab-panel"
+      id="react-tabs-7"
+      role="tabpanel"
+    />
+    <div
+      aria-labelledby="react-tabs-8"
+      class="react-tabs__tab-panel react-tabs__tab-panel--selected"
+      id="react-tabs-9"
+      role="tabpanel"
+    >
+      Tab text 2
+    </div>
+    <div
+      aria-labelledby="react-tabs-10"
+      class="react-tabs__tab-panel"
+      id="react-tabs-11"
+      role="tabpanel"
+    />
+  </div>
+</div>
+`;
+
+exports[`Tabs snapshot Renders 1`] = `
+<div>
+  <h1>
+    My first React App
+  </h1>
+  <div
+    class="react-tabs"
+    data-tabs="true"
+  >
+    <ul
+      class="react-tabs__tab-list"
+      role="tablist"
+    >
+      <li
+        aria-controls="react-tabs-1"
+        aria-disabled="false"
+        aria-selected="true"
+        class="react-tabs__tab react-tabs__tab--selected"
+        data-test="tab-control"
+        id="react-tabs-0"
+        role="tab"
+        tabindex="0"
+      >
+        Tab 1
+      </li>
+      <li
+        aria-controls="react-tabs-3"
+        aria-disabled="false"
+        aria-selected="false"
+        class="react-tabs__tab"
+        data-test="tab-control"
+        id="react-tabs-2"
+        role="tab"
+      >
+        Tab 2
+      </li>
+      <li
+        aria-controls="react-tabs-5"
+        aria-disabled="false"
+        aria-selected="false"
+        class="react-tabs__tab"
+        data-test="tab-control"
+        id="react-tabs-4"
+        role="tab"
+      >
+        Tab 3
+      </li>
+    </ul>
+    <div
+      aria-labelledby="react-tabs-0"
+      class="react-tabs__tab-panel react-tabs__tab-panel--selected"
+      id="react-tabs-1"
+      role="tabpanel"
+    >
+      Tab text 1
+    </div>
+    <div
+      aria-labelledby="react-tabs-2"
+      class="react-tabs__tab-panel"
+      id="react-tabs-3"
+      role="tabpanel"
+    />
+    <div
+      aria-labelledby="react-tabs-4"
+      class="react-tabs__tab-panel"
+      id="react-tabs-5"
+      role="tabpanel"
+    />
+  </div>
+</div>
+`;

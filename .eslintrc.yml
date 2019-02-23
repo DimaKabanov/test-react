@@ -6,16 +6,14 @@
 
   parser: babel-eslint
 
-  env:
-    browser: true
-    node: true
-    jest: true
+  plugins:
+  - jest
+  - babel
 
-  parserOptions:
-    ecmaFeatures:
-      jsx: true
-    ecmaVersion: 2018
-    sourceType: module
+  env:
+    node: true
+    jest/globals: true
+    browser: true
 
   rules:
     react/prop-types: 0

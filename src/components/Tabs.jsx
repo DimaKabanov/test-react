@@ -8,9 +8,17 @@ import {
 } from 'react-tabs';
 
 class Tabs extends Component {
-  renderTab = tabs => tabs.map(tab => <Tab data-tab-id={`tab-${tab.id}`} key={tab.id}>{tab.title}</Tab>)
+  renderTab = tabs => tabs.map(({ id, title }) => (
+    <Tab data-test="tab-control" key={id}>
+      {title}
+    </Tab>
+  ))
 
-  renderTabPanel = tabs => tabs.map(tab => <TabPanel key={tab.id}>{tab.text}</TabPanel>)
+  renderTabPanel = tabs => tabs.map(({ id, text }) => (
+    <TabPanel key={id}>
+      {text}
+    </TabPanel>
+  ))
 
   render() {
     const { tabs } = this.props;
