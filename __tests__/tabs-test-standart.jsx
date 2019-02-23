@@ -1,8 +1,6 @@
-import '@babel/polyfill';
-
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Tabs from './components/Tabs';
+import renderer from 'react-test-renderer';
+import Tabs from '../src/components/Tabs';
 
 const tabsData = [
   {
@@ -22,9 +20,8 @@ const tabsData = [
   },
 ];
 
-export default () => {
-  ReactDOM.render(
-    <Tabs tabs={tabsData} />,
-    document.getElementById('root'),
-  );
-};
+test('Tabs 1', () => {
+  const component = renderer.create(<Tabs tabs={tabsData} />);
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
