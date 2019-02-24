@@ -10,12 +10,36 @@ import { uniqueId } from 'lodash';
 
 class Tabs extends Component {
   state = {
+    activeTabIndex: 0,
     tabs: [
       { id: uniqueId(), title: 'Tab 1', text: 'Tab text 1' },
       { id: uniqueId(), title: 'Tab 2', text: 'Tab text 2' },
       { id: uniqueId(), title: 'Tab 3', text: 'Tab text 4' },
     ],
   }
+
+  componentDidMount() {
+    const { cookies } = this.props;
+    if (!cookies) {
+      return;
+    }
+    const savedActiveTabIndex = cookies.get('activeTabIndex');
+    const newActiveTabIndex = savedActiveTabIndex || 0;
+    this.setState({ activeTabIndex: Number(newActiveTabIndex) });
+  }
+
+  saveActiveTabIndex = (tabIndex) => {
+    const { cookies } = this.props;
+    if (!cookies) {
+      return;
+    }
+    cookies.set('activeTabIndex', tabIndex);
+  }
+
+  onSetActiveTabIndex = (tabIndex) => {
+    this.setState({ activeTabIndex: tabIndex });
+    this.saveActiveTabIndex(tabIndex);
+  };
 
   onAddNewTab = () => {
     const { tabs } = this.state;
@@ -45,9 +69,9 @@ class Tabs extends Component {
   ))
 
   render() {
-    const { tabs } = this.state;
+    const { tabs, activeTabIndex } = this.state;
     return (
-      <TabsWrapper>
+      <TabsWrapper selectedIndex={activeTabIndex} onSelect={this.onSetActiveTabIndex}>
         <button type="button" data-test="add-tab-btn" onClick={this.onAddNewTab}>
           Add tab
         </button>

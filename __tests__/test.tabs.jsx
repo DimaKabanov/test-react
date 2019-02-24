@@ -68,4 +68,27 @@ describe('Tabs without snapshot', () => {
     const tabControlsContainer = s.getTabControsContainer();
     expect(tabControlsContainer).toContainMatchingElements(2, tabControlsSelector);
   });
+
+  test('Correct set active tab after reload', () => {
+    const cookiesStub = () => {
+      const cookies = {};
+      return {
+        set: (name, value) => { cookies[name] = value; },
+        get: name => cookies[name],
+      };
+    };
+    const cookies = cookiesStub();
+    const app = mount(<App cookies={cookies} />);
+    const s = getSelector(app);
+    const secondTab = s.getTabByIndex(1);
+    expect(secondTab).toHaveProp('aria-selected', 'false');
+
+    secondTab.simulate('click');
+
+    const app2 = mount(<App cookies={cookies} />);
+    const s2 = getSelector(app2);
+
+    const updatedSecondTab = s2.getTabByIndex(1);
+    expect(updatedSecondTab).toHaveProp('aria-selected', 'true');
+  });
 });
