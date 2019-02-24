@@ -7,8 +7,6 @@ const tabControlsSelector = 'li[data-test="tab-control"]';
 const addNewTabBtnSelector = '[data-test="add-tab-btn"]';
 const removeTabBtnSelector = '[data-test="remove-tab-btn"]';
 const tabControlsContainerSelector = 'ul[data-test="tab-controls-container"]';
-const tabSelectedSelector = '[aria-selected="true"]';
-const tabUnselectedSelector = '[aria-selected="false"]';
 
 const getSelector = app => ({
   getTabControlList: () => app.find(tabControlsSelector),
@@ -35,16 +33,6 @@ describe('Tabs snapshot', () => {
 });
 
 describe('Tabs without snapshot', () => {
-  test('Correct renders tab', () => {
-    const app = mount(<App />);
-    const s = getSelector(app);
-    const firstTab = s.getTabByIndex(0);
-    const secondTab = s.getTabByIndex(1);
-
-    expect(firstTab).toMatchSelector(tabSelectedSelector);
-    expect(secondTab).toMatchSelector(tabUnselectedSelector);
-  });
-
   test('Correct switching to second tab', () => {
     const app = mount(<App />);
     const s = getSelector(app);
@@ -55,8 +43,8 @@ describe('Tabs without snapshot', () => {
     const firstTab = s.getTabByIndex(0);
     const updatedSecondTab = s.getTabByIndex(1);
 
-    expect(firstTab).toMatchSelector(tabUnselectedSelector);
-    expect(updatedSecondTab).toMatchSelector(tabSelectedSelector);
+    expect(firstTab).toHaveProp('aria-selected', 'false');
+    expect(updatedSecondTab).toHaveProp('aria-selected', 'true');
   });
 
   test('Correct adding new tab', () => {
