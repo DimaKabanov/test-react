@@ -9,8 +9,15 @@ exports[`Tabs snapshot Click to second tab 1`] = `
     class="react-tabs"
     data-tabs="true"
   >
+    <button
+      data-test="add-tab-btn"
+      type="button"
+    >
+      Add tab
+    </button>
     <ul
       class="react-tabs__tab-list"
+      data-test="tab-controls-container"
       role="tablist"
     >
       <li
@@ -61,6 +68,12 @@ exports[`Tabs snapshot Click to second tab 1`] = `
       role="tabpanel"
     >
       Tab text 2
+      <button
+        data-test="remove-tab-btn"
+        type="button"
+      >
+        Remove tab 5
+      </button>
     </div>
     <div
       aria-labelledby="react-tabs-10"
@@ -81,8 +94,15 @@ exports[`Tabs snapshot Renders 1`] = `
     class="react-tabs"
     data-tabs="true"
   >
+    <button
+      data-test="add-tab-btn"
+      type="button"
+    >
+      Add tab
+    </button>
     <ul
       class="react-tabs__tab-list"
+      data-test="tab-controls-container"
       role="tablist"
     >
       <li
@@ -127,6 +147,12 @@ exports[`Tabs snapshot Renders 1`] = `
       role="tabpanel"
     >
       Tab text 1
+      <button
+        data-test="remove-tab-btn"
+        type="button"
+      >
+        Remove tab 1
+      </button>
     </div>
     <div
       aria-labelledby="react-tabs-2"
