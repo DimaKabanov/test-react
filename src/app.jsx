@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom';
 
 import App from './components/App';
 
-export default (data) => {
+export default () => {
   ReactDOM.render(
-    <App tabs={data} />,
+    <App />,
     document.getElementById('root'),
   );
 };
