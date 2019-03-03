@@ -7,10 +7,13 @@ import {
   TabPanel,
 } from 'react-tabs';
 import { uniqueId } from 'lodash';
+import axios from 'axios';
+import parseXml from '../utils/parser';
 
 class Tabs extends Component {
   state = {
     activeTabIndex: 0,
+    rssLink: null,
     tabs: [
       { id: uniqueId(), title: 'Tab 1', text: 'Tab text 1' },
       { id: uniqueId(), title: 'Tab 2', text: 'Tab text 2' },
@@ -53,6 +56,28 @@ class Tabs extends Component {
     this.setState({ tabs: tabs.filter(({ id }) => id !== tabId) });
   }
 
+  onUpdateRssLink = (evt) => {
+    const { value } = evt.target;
+    this.setState({ rssLink: value });
+  }
+
+  onGetRss = async (evt) => {
+    evt.preventDefault();
+    const { rssLink } = this.state;
+    const url = `https://cors-anywhere.herokuapp.com/${rssLink}`;
+
+    try {
+      const { data } = await axios.get(url);
+      const { title, description } = parseXml(data);
+      const { tabs } = this.state;
+      const nextId = uniqueId();
+      const newTab = { id: nextId, title, text: description };
+      this.setState({ tabs: [...tabs, newTab] });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   renderTab = tabs => tabs.map(({ id, title }) => (
     <Tab data-test="tab-control" key={id}>
       {title}
@@ -68,6 +93,18 @@ class Tabs extends Component {
     </TabPanel>
   ))
 
+  renderForm = () => (
+    <form onSubmit={this.onGetRss} data-test="form-rss">
+      <label htmlFor="rss-link">
+        RSS link
+        <input onChange={this.onUpdateRssLink} data-test="rss-link-input" type="text" id="rss-link" />
+      </label>
+      <button type="submit">
+        Add RSS
+      </button>
+    </form>
+  )
+
   render() {
     const { tabs, activeTabIndex } = this.state;
     return (
@@ -75,6 +112,7 @@ class Tabs extends Component {
         <button type="button" data-test="add-tab-btn" onClick={this.onAddNewTab}>
           Add tab
         </button>
+        {this.renderForm()}
         <TabList data-test="tab-controls-container">
           {this.renderTab(tabs)}
         </TabList>

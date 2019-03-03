@@ -15,6 +15,25 @@ exports[`Tabs snapshot Click to second tab 1`] = `
     >
       Add tab
     </button>
+    <form
+      data-test="form-rss"
+    >
+      <label
+        for="rss-link"
+      >
+        RSS link
+        <input
+          data-test="rss-link-input"
+          id="rss-link"
+          type="text"
+        />
+      </label>
+      <button
+        type="submit"
+      >
+        Add RSS
+      </button>
+    </form>
     <ul
       class="react-tabs__tab-list"
       data-test="tab-controls-container"
@@ -100,6 +119,25 @@ exports[`Tabs snapshot Renders 1`] = `
     >
       Add tab
     </button>
+    <form
+      data-test="form-rss"
+    >
+      <label
+        for="rss-link"
+      >
+        RSS link
+        <input
+          data-test="rss-link-input"
+          id="rss-link"
+          type="text"
+        />
+      </label>
+      <button
+        type="submit"
+      >
+        Add RSS
+      </button>
+    </form>
     <ul
       class="react-tabs__tab-list"
       data-test="tab-controls-container"
